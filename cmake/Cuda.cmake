@@ -4,6 +4,9 @@ endif()
 
 # Known NVIDIA GPU achitectures Caffe can be compiled for.
 # This list will be used for CUDA_ARCH_NAME = All option
+# For CUDA >= 9.2, comment the 20 through 21 lines for compatibility.
+# For CUDA < 6.0, comment the 50 through 61 lines for compatibility.
+# For CUDA < 8.0, comment the 60 and 61 lines for compatibility.
 set(Caffe_known_gpu_archs "20 21(20) 30 35 50 60 61")
 
 ################################################################################################
