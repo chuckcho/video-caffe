@@ -1,4 +1,4 @@
-FROM nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu16.04
 LABEL maintainer caffe-maint@googlegroups.com
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -29,9 +29,9 @@ WORKDIR $CAFFE_ROOT
 
 # FIXME: use ARG instead of ENV once DockerHub supports this
 # https://github.com/docker/hub-feedback/issues/460
-ENV CLONE_TAG=1.0
+ENV CLONE_TAG=master
 
-RUN git clone -b ${CLONE_TAG} --depth 1 https://github.com/chuckcho/video-caffe.git . && \
+RUN git clone -b ${CLONE_TAG} --depth 1 https://github.com/CXXT-Projects/video-caffe.git . && \
     pip2 install --upgrade pip && \
     cd python && for req in $(cat requirements.txt) pydot; do pip install $req; done && cd .. && \
     git clone https://github.com/NVIDIA/nccl.git && cd nccl && make -j install && cd .. && rm -rf nccl && \
