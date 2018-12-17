@@ -233,7 +233,7 @@ bool ReadVideoToCVMat(const string& path,
     char image_filename[256];
 
     for (int i = start_frame; i <= end_frame; ++i) {
-      snprintf(image_filename, sizeof(image_filename), "%s/%d.jpg",
+      snprintf(image_filename, sizeof(image_filename), "%s/image_%04d.jp",
                path.c_str(), i);
       cv_img_origin = cv::imread(image_filename, cv_read_flag);
       if (!cv_img_origin.data) {
